@@ -5,5 +5,23 @@
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4"
-  }
+  },
+  "name": "pokemon_api",
+  "version": "1.0.0",
+  "description": "A pokemon api used for my final project at BCIT",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianTejada/pokemon_api.git"
+  },
+  "author": "Adrian Tejada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianTejada/pokemon_api/issues"
+  },
+  "homepage": "https://github.com/AdrianTejada/pokemon_api#readme"
 }
