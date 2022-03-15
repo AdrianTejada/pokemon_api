@@ -8,7 +8,7 @@ const signup = (req, res) => {
     user.password = password
     user.save((err,done)=>{
         if(err){
-            return res.status(500).send("Signup failed")
+            return res.status(500).send(err)
         } else {
             res.status(201).send("signed up successfully")
         }
