@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/getpokemon', GetPokemon)
 
 router.get('/', (req, res)=> {
-    res.send('home')
+    res.send('home (delete this after)')
 })
 
 module.exports = router;
