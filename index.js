@@ -11,8 +11,8 @@ mongoose.connect(config.MONGODB_URL, (e)=>{
     console.log(e)
   }
 })
-
+app.use(cors())
 app.use(express.json())
 app.use(pokemonRouter)
 app.use(userRouter)
-app.listen(process.env.PORT || 8888, console.log('running'))
+app.listen(process.env.PORT || 5000, console.log('running'))
