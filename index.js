@@ -15,4 +15,4 @@ mongoose.connect(config.MONGODB_URL, (e)=>{
 app.use(express.json())
 app.use(pokemonRouter)
 app.use(userRouter)
-app.listen(8888, console.log('app running'))
+app.listen(process.env.PORT || 8888, console.log('running'))
