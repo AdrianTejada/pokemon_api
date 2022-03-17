@@ -20,7 +20,7 @@ const signup = (req, res) => {
 const login = (req, res) => {
     User.findOne({email: req.body.email}, (err,user)=>{
         if (err || !user) {
-            return res.status(404).send("user not found")
+            return res.send("user not found")
         } 
         
         if (user.comparePassword(req.body.password)) {
