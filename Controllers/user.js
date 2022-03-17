@@ -14,6 +14,7 @@ const signup = (req, res) => {
             res.status(201).send("signed up successfully")
         }
     })
+    // put user.fineOne from login if you want to send over a token in the future
 }
 
 const login = (req, res) => {
@@ -24,7 +25,7 @@ const login = (req, res) => {
         
         if (user.comparePassword(req.body.password)) {
             var token = jwt.sign({id:user._id}, 'thisismysecret')
-            res.send(token)
+            res.send({token, username:user.username})
         } else {
             res.send("could not login")
         }
