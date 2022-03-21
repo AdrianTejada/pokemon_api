@@ -1,7 +1,7 @@
 const Pokemon = require('../Models/pokemon.js')
 
 const GetPokemon = (req, res) => {
-  var {txt, gen1, gen2, gen3, gen4, gen5, gen6, show_legendaries } = req.query;
+  var {txt, gen1, gen2, gen3, gen4, gen5, gen6, show_legendaries, page } = req.query;
 
   txt = txt.charAt(0).toUpperCase() + txt.slice(1)
 
@@ -26,8 +26,9 @@ const GetPokemon = (req, res) => {
       ]},(err,data)=>{
         if (err) {
           console.log(err)
-        } 
-        res.json(data)
+        }
+        const pokemon = data.slice((page-1)*8, page*8)
+        res.json(pokemon)
       })
     } else {
       Pokemon.find({ $and: [
@@ -48,7 +49,8 @@ const GetPokemon = (req, res) => {
         if (err) {
           console.log(err)
         } 
-        res.json(data)
+        const pokemon = data.slice((page-1)*8, page*8)
+        res.json(pokemon)
       })
     }
   }

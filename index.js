@@ -33,12 +33,16 @@ app.use(userRouter)
 
 const users = {};
 
-const Pokemon1 = null;
+var Pokemon1 = null;
 
-const Pokemon2 = null;
+var Pokemon2 = null;
+
+var state = null;
 
 io.on('connection', (socket)=>{
   console.log('a user connected')
+  io.emit('setpokemon_1', Pokemon1)
+  io.emit('setpokemon_2', Pokemon2)
 
   socket.on('user_joined', (username)=>{
     users[socket.id] = {username}
@@ -50,11 +54,17 @@ io.on('connection', (socket)=>{
   })
 
   socket.on('pokemon_1', (pokemon1)=> {
-    io.emit('setpokemon_1', pokemon1);
+    Pokemon1 = pokemon1;
+    io.emit('setpokemon_1', Pokemon1);
   })
 
   socket.on('pokemon_2', (pokemon2)=> {
-    io.emit('setpokemon_2', pokemon2);
+    Pokemon2 = pokemon2
+    io.emit('setpokemon_2', Pokemon2);
+  })
+
+  socket.on('fight', (state)=>{
+    io.emit('fighting', Pokemon1, Pokemon2)
   })
 
   socket.on('reset', ()=>{
