@@ -11,7 +11,8 @@ const pokemonRouter = require('./Routes/pokemon.js')
 const userRouter = require('./Routes/user.js')
 
 const io = new Server(server, {
-  cors:{origin:['http://localhost:3000'],
+  // cors:{origin:['http://localhost:3000'],
+  cors:{origin:['https://pokemon-quick-battles-n4cx4z49j-adriantejada.vercel.app'],
   allowedHeaders:["Access-Control-Allow-Origin"],
   credentials: true
   }
